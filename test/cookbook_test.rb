@@ -39,8 +39,12 @@ class CookBookTest < Minitest::Test
 
   def test_recipe_hash
     @cookbook.add_recipe(@mac_and_cheese)
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
     @cookbook.add_recipe(@burger)
-    
+    @burger.add_ingredient(@ground_beef, 4)
+    @burger.add_ingredient(@bun, 100)
+
     assert_equal 7, @cookbook.recipe_hash
   end
 
