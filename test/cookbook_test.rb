@@ -33,11 +33,13 @@ class CookBookTest < Minitest::Test
     assert_equal [@mac_and_cheese, @burger], @cookbook.all_recipes
   end
 
-  # def test_cookbook_summary
-  #   assert_equal 0, @cookbook.summary
+  # def test_details
+  #   assert_equal 0, @cookbook.details
   # end
 
-  def test_recipe_hash
+  def test_cookbook_summary
+    assert_equal [], @cookbook.summary
+
     @cookbook.add_recipe(@mac_and_cheese)
     @mac_and_cheese.add_ingredient(@cheese, 2)
     @mac_and_cheese.add_ingredient(@mac, 8)
@@ -45,37 +47,28 @@ class CookBookTest < Minitest::Test
     @burger.add_ingredient(@ground_beef, 4)
     @burger.add_ingredient(@bun, 100)
 
-    assert_equal 7, @cookbook.recipe_hash
-  end
+    expected = [{
+                :name=>"Mac and Cheese",
+                :details=>{
+                  :ingredients=>[{
+                    :ingredient=>"Macaroni",
+                    :amount=>"8 oz"},
+                    {:ingredient=>"Cheese",
+                      :amount=>"2 C"}],
+                  :total_calories=>440
+                  }
+                },
+                {:name=>"Burger",
+                :details=>{
+                  :ingredients=>[{
+                    :ingredient=>"Ground Beef",
+                    :amount=>"4 oz"},
+                    {:ingredient=>"Bun",
+                      :amount=>"100 g"}],
+                  :total_calories=>500
+                  }
+                }]
 
-  # def test_cookbook_summary
-  #   assert_equal ({}), @cookbook.summary
-  #
-  #   @cookbook.add_recipe(@mac_and_cheese)
-  #   @cookbook.add_recipe(@burger)
-  #
-  #   expected = [{
-  #               :name=>"Mac and Cheese",
-  #               :details=>{
-  #                 :ingredients=>[{
-  #                   :ingredient=>"Macaroni",
-  #                   :amount=>"8 oz"},
-  #                   {:ingredient=>"Cheese",
-  #                     :amount=>"2 C"}],
-  #                 :total_calories=>440
-  #                 }
-  #               },
-  #               {:name=>"Burger",
-  #               :details=>{
-  #                 :ingredients=>[{
-  #                   :ingredient=>"Ground Beef",
-  #                   :amount=>"4 oz"},
-  #                   {:ingredient=>"Bun",
-  #                     :amount=>"100 g"}],
-  #                 :total_calories=>500
-  #                 }
-  #               }]
-  #
-  #   assert_equal expected, @cookbook.summary
-  # end
+    assert_equal expected, @cookbook.summary
+  end
 end

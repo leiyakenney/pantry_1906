@@ -56,16 +56,4 @@ class RecipeTest < Minitest::Test
 
     assert_equal "8 oz", @mac_and_cheese.real_amount(@mac)
   end
-
-  # def test_real_amount_hash
-  #   @mac_and_cheese.add_ingredient(@cheese, 2)
-  #   @mac_and_cheese.add_ingredient(@mac, 8)
-  #
-  #   expected = {
-  #     :cheese => "2 C",
-  #     :mac => "8 oz"
-  #   }
-  #
-  #   assert_equal expected, @mac_and_cheese.real_amount_hash
-  # end
 end

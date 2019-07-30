@@ -31,13 +31,26 @@ class CookBook
   # end
 
   #define 26-30 for each recipe, then shovel into cookbook
+  # 
+  # def details
+  #   details_hash = {}
+  #   details_hash[:ingredients] = recipe.ingredients_required.each { |ingredient| ingredient.name}
+  #   details_hash[:total_calories] = recipe.real_amount
+  #   details_hash
+  # end
 
-  def recipe_hash
+  def summary
     cookbook_array = []
     @all_recipes.each do |recipe|
       hash_recipe = {}
       hash_recipe[:name] = recipe.name
       hash_recipe[:details] = recipe.ingredients_required
+      details_hash = {}
+      details_hash[:ingredients] = recipe.ingredients_required.each { |ingredient| ingredient.name}
+      details_hash[:total_calories] = recipe.real_amount
+      # recipe.ingredients_required.each do |ingredient|
+      # end
+      # hash_recipe[:details][:total_calories] = recipe.total_calories
       cookbook_array << hash_recipe
       # hash_recipe[:details] += recipe.total_calories
     end
