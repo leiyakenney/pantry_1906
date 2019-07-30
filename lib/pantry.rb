@@ -13,4 +13,11 @@ class Pantry
     @stock[ingredient] += amount
   end
 
+  def enough_ingredients_for?(recipe)
+    recipe.ingredients_required.all? do |ingredient, amt|
+      @stock[ingredient] >> recipe.ingredients_required[ingredient]
+      # binding.pry
+    end
+  end
+
 end
