@@ -29,7 +29,7 @@ class Recipe
   # def real_amount_hash
   #   real_amt_hash = Hash.new(0)
   #   @ingredients_required.each do |ingredient, amt|
-  #     real_amt_hash[ingredient.name] = real_amount(ingredient)
+  #     real_amt_hash[:amount] = real_amount(ingredient)
   #   end
   # end
 
