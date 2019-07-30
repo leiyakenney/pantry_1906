@@ -33,6 +33,9 @@ class PantryTest < Minitest::Test
   end
 
   def test_if_enough_ingredients_for
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
+
     @pantry.restock(@cheese, 5)
     @pantry.restock(@cheese, 10)
 
