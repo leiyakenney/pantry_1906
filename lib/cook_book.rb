@@ -1,3 +1,10 @@
 class CookBook
+  attr_reader :summary
 
-end 
+  def initialize
+    @summary = {}
+  end
+
+  
+
+end
