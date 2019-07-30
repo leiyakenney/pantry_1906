@@ -26,4 +26,11 @@ class Recipe
     ingredients_required[ingredient].to_s + " " + ingredient.unit
   end
 
+  # def real_amount_hash
+  #   real_amt_hash = Hash.new(0)
+  #   @ingredients_required.each do |ingredient, amt|
+  #     real_amt_hash[ingredient.name] = real_amount(ingredient)
+  #   end
+  # end
+
 end
