@@ -22,4 +22,8 @@ class Recipe
     end
   end
 
+  def real_amount(ingredient)
+    ingredients_required[ingredient].to_s + ingredient.unit
+  end
+
 end
