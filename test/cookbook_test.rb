@@ -37,6 +37,13 @@ class CookBookTest < Minitest::Test
   #   assert_equal 0, @cookbook.summary
   # end
 
+  def test_recipe_hash
+    @cookbook.add_recipe(@mac_and_cheese)
+    @cookbook.add_recipe(@burger)
+    
+    assert_equal 7, @cookbook.recipe_hash
+  end
+
   # def test_cookbook_summary
   #   assert_equal ({}), @cookbook.summary
   #

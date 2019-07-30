@@ -14,34 +14,40 @@ class CookBook
     @all_recipes << recipe
   end
 
-  def summary
-    cookbook_hash = Hash.new
-    @all_recipes.each do |recipe|
-      cookbook_hash[recipe] = {name: Hash.new, details: Hash.new}
-    end
-    cookbook_hash[recipe][:name]
-    cookbook_hash[recipe][:details][:ingredients]
-    cookbook_hash[recipe][:details][:total_calories]
+  def recipe_hash
+
   end
 
-  # def seasonal_summary(team_id)
-  # season_stats = Hash.new
-  # all_seasons_array.each do |season|
-    # season_stats[season] = {postseason: Hash.new, regular_season: Hash.new}
+  # def summary
+  #   cookbook_array = []
+  #   @all_recipes.each do |recipe|
+  #     cookbook_array << recipe_hash
+  #     recipe_hash.each do |
+  #     recipe_hash[recipe][:name]
+  #     recipe_hash[recipe][:details][:ingredients]
+  #     recipe_hash[recipe][:details][:ingredients][:ingredient][:total_amount]
+  #     recipe_hash[recipe][:details][:total_calories]
+  #   end
   # end
-  season_stats.each do |season, stats|
-    season_stats[season][:postseason][:win_percentage] = season_win_percentages_type(team_id, "P")[season]
-    season_stats[season][:postseason][:total_goals_scored] = goals_scored_per_season_type(team_id, "P")[season]
-    season_stats[season][:postseason][:total_goals_against] = goals_allowed_per_season_type(team_id, "P")[season]
-    season_stats[season][:postseason][:average_goals_scored] = average_goals_scored_season_type(team_id, "P")[season]
-    season_stats[season][:postseason][:average_goals_against] = average_goals_allowed_season_type(team_id, "P")[season]
-    season_stats[season][:regular_season][:win_percentage] = season_win_percentages_type(team_id, "R")[season]
-    season_stats[season][:regular_season][:total_goals_scored] = goals_scored_per_season_type(team_id, "R")[season]
-    season_stats[season][:regular_season][:total_goals_against] = goals_allowed_per_season_type(team_id, "R")[season]
-    season_stats[season][:regular_season][:average_goals_scored] = average_goals_scored_season_type(team_id, "R")[season]
-    season_stats[season][:regular_season][:average_goals_against] = average_goals_allowed_season_type(team_id, "R")[season]
+
+  #define 26-30 for each recipe, then shovel into cookbook
+
+  def recipe_hash
+    hash_recipe = {}
+    @all_recipes.each do |recipe|
+      hash_recipe[:name] = recipe.name
+      hash_recipe[:details] = recipe.ingredients_required[recipe]
+      # hash_recipe[:details] += recipe.total_calories
+    end
+    hash_recipe[:name]
   end
-end
+
+  # def recipe_hash
+  #   groceries = {}
+  #   groceries[:apples] = 2
+  #   groceries[:oranges] = 7
+  #   groceries[:oranges]
+  # end
 
 
   #recipe_hash needs to have:
