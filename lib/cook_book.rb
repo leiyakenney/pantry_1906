@@ -18,6 +18,8 @@ class CookBook
 
   end
 
+  # what I wanted summary to look like
+  
   # def summary
   #   cookbook_array = []
   #   @all_recipes.each do |recipe|
@@ -30,40 +32,21 @@ class CookBook
   #   end
   # end
 
-  #define 26-30 for each recipe, then shovel into cookbook
-  # 
-  # def details
-  #   details_hash = {}
-  #   details_hash[:ingredients] = recipe.ingredients_required.each { |ingredient| ingredient.name}
-  #   details_hash[:total_calories] = recipe.real_amount
-  #   details_hash
-  # end
-
   def summary
     cookbook_array = []
     @all_recipes.each do |recipe|
       hash_recipe = {}
       hash_recipe[:name] = recipe.name
+      hash_recipe[:details] = [:ingredients]
       hash_recipe[:details] = recipe.ingredients_required
-      details_hash = {}
-      details_hash[:ingredients] = recipe.ingredients_required.each { |ingredient| ingredient.name}
-      details_hash[:total_calories] = recipe.real_amount
-      # recipe.ingredients_required.each do |ingredient|
-      # end
-      # hash_recipe[:details][:total_calories] = recipe.total_calories
+      ingredient_arr = []
+      hash_recipe[:details][:ingredients] = recipe.ingredients_required.each do |ingredient|
+        ingredient_arr << ingredient[0].name
+      end
       cookbook_array << hash_recipe
-      # hash_recipe[:details] += recipe.total_calories
     end
     cookbook_array
   end
-
-  # def recipe_hash
-  #   groceries = {}
-  #   groceries[:apples] = 2
-  #   groceries[:oranges] = 7
-  #   groceries[:oranges]
-  # end
-
 
   #recipe_hash needs to have:
     #:name => "name"
