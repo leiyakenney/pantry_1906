@@ -16,12 +16,10 @@ class Recipe
     ingredients_required[ingredient]
   end
 
-  # def total_calories
-  #   total_cals = 0
-  #   @ingredients_required.each do |ingredient, amt|
-  #     total_cals = (ingredient.cals * amt)
-  #   end
-  #   total_cals
-  # end
+  def total_calories
+    ingredients_required.sum do |ingredient, amt|
+      (ingredient.cals * amt)
+    end
+  end
 
 end
